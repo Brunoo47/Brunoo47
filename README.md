@@ -1,6 +1,6 @@
 <h3>Bruno Ostroski. Full Stack - Developer ! </h3>
 
-My name is Bruno Ostroski, I’m 19 years old, and I’m from Curitiba – PR. I graduated from high school with a technical degree in Systems Development at Senai Norte, in Joinville, and I am currently pursuing a degree in Systems Analysis and Development at Unisociesc !
+My name is Bruno Ostroski, I’m 19 years old, and I’m from Joinville - SC. I graduated from high school with a technical degree in Systems Development at Senai Norte, in Joinville, and I am currently pursuing a degree in Systems Analysis and Development at Unisociesc !
 
 Passionate about technology, I am constantly seeking to expand my knowledge and skills. My journey in programming goes beyond the classroom; I’m a tech enthusiast and actively contribute on GitHub, where I share projects and collaborations that reflect my dedication and curiosity. My focus is on integrating theory and practice to create efficient and impactful solutions.
 
