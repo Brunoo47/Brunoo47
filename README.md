@@ -1,4 +1,4 @@
-<h3>Bruno Ostroski. Full Stack - Developer  </h3>
+<h3>Bruno Ostroski. Full Stack - Developer !  </h3>
 
 My name is Bruno Ostroski, I’m 19 years old, and I’m from Joinville - SC. I graduated from high school with a technical degree in Systems Development at Senai Norte, in Joinville, and I am currently pursuing a degree in Systems Analysis and Development at Unisociesc !
 
