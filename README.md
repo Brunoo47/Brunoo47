@@ -5,7 +5,7 @@ My name is Bruno Ostroski, I’m 20 years old, and I’m from Joinville - SC. I 
 Passionate about technology, I am constantly seeking to expand my knowledge and skills. My journey in programming goes beyond the classroom; I’m a tech enthusiast and actively contribute on GitHub, where I share projects and collaborations that reflect my dedication and curiosity. My focus is on integrating theory and practice to create efficient and impactful solutions.
 
 <div style="display: inline_block">
-<img align="center" alt="Java" height="30" width="30" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-plain.svg">
+<img align="center" alt="Java" height="30" width="30" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg">
   <img align="center" alt="Javascript" height="30" width="30" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-plain.svg">
 <img align="center" alt="Spring-Boot" height="30" width="30" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/spring/spring-original-wordmark.svg">
   <img align="center" alt="AngularJS" height="30" width="30" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vuejs/vuejs-original-wordmark.svg">
