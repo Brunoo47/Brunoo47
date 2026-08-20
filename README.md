@@ -22,10 +22,3 @@
   <img src="https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white" alt="Postman">
   <img src="https://img.shields.io/badge/Cypress-17202C?style=for-the-badge&logo=cypress&logoColor=white" alt="Cypress">
 </div>
-
-<h3 align="center">📊 Stats</h3>
-<div align="center">
-  <img src="https://github-readme-stats-sigma-five.vercel.app/api/top-langs/?username=Brunoo47&layout=compact&theme=tokyonight" alt="Linguagens mais usadas">
-  <br/>
-  <img src="https://github-readme-stats-sigma-five.vercel.app/api?username=Brunoo47&count_private=true&show_icons=true&theme=tokyonight" alt="Github Stats">
-</div>
