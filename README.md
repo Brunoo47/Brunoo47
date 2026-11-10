@@ -26,5 +26,5 @@
 
 Cada botão abre uma issue com o título <code>$ comando</code>. Um <a href="./.github/workflows/terminal.yml">GitHub Action</a> executa o comando num <a href="./.github/terminal/fs.mjs">filesystem virtual</a>, guarda a sessão (compartilhada entre todos os visitantes — se alguém der <code>cd</code>, todo mundo muda de pasta), redesenha o terminal em SVG com a animação de digitação e responde na sua issue com a saída. Os dados de <code>htop</code>, <code>neofetch</code> e <code>git log</code> vêm da API do GitHub em tempo real.
 
-<sub>Atualizado em 10/11/2026, 07:00</sub>
+<sub>Atualizado em 10/11/2026, 07:27</sub>
 </details>

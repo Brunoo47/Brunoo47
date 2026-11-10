@@ -1,0 +1,117 @@
+{
+ "login": "Brunoo47",
+ "createdAt": "2023-02-12T16:13:10Z",
+ "followers": 94,
+ "repos": 5,
+ "stars": 6,
+ "total": 21,
+ "prs": 0,
+ "commitsYear": 16,
+ "commitsAllTime": 70,
+ "load": [
+  5,
+  5,
+  7
+ ],
+ "current": 1,
+ "longest": 1,
+ "weeks": [
+  0,
+  0,
+  0,
+  0,
+  4,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  1,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  1,
+  1,
+  0,
+  0,
+  5
+ ],
+ "langs": [
+  {
+   "name": "JavaScript",
+   "color": "#f1e05a",
+   "pct": 70.9670163659253
+  },
+  {
+   "name": "Python",
+   "color": "#3572A5",
+   "pct": 20.488795635753252
+  },
+  {
+   "name": "CSS",
+   "color": "#663399",
+   "pct": 6.749811162400336
+  },
+  {
+   "name": "PHP",
+   "color": "#4F5D95",
+   "pct": 1.2498531263113721
+  },
+  {
+   "name": "HTML",
+   "color": "#e34c26",
+   "pct": 0.4844313890054553
+  },
+  {
+   "name": "Dockerfile",
+   "color": "#384d54",
+   "pct": 0.060092320604280325
+  }
+ ],
+ "commits": [
+  {
+   "repo": "Brunoo47",
+   "sha": "748fae4",
+   "msg": "feat: perfil vira um terminal interativo",
+   "date": "2026-11-10T10:27:00Z"
+  },
+  {
+   "repo": "Brunoo47",
+   "sha": "623dbd0",
+   "msg": "chore: atualiza dashboard do perfil 🤖",
+   "date": "2026-11-10T10:19:39Z"
+  },
+  {
+   "repo": "Brunoo47",
+   "sha": "4d58281",
+   "msg": "feat: neofetch com ASCII do avatar e 4 em Linha jogável contra IA",
+   "date": "2026-11-10T10:19:15Z"
+  },
+  {
+   "repo": "Brunoo47",
+   "sha": "45a8e8f",
+   "msg": "chore: atualiza dashboard do perfil 🤖",
+   "date": "2026-11-10T10:11:27Z"
+  },
+  {
+   "repo": "Brunoo47",
+   "sha": "93856a4",
+   "msg": "feat: README novo com dashboard próprio, cobrinha e contribuições 3D",
+   "date": "2026-11-10T10:08:46Z"
+  },
+  {
+   "repo": "demolay-ai-assistant",
+   "sha": "9e78186",
+   "msg": "README: capa com badges, preview, destaques e guia completo",
+   "date": "2026-06-19T19:27:07Z"
+  }
+ ],
+ "fetchedAt": "2026-11-10T10:27:17.255Z"
+}
