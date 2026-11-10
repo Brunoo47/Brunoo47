@@ -62,7 +62,7 @@ export async function fetchActivity(token, login) {
 
   // contribuições privadas que o token não detalha (perfil com "Private contributions" ligado): entram como um bloco só
   if (cc.restrictedContributionsCount > 0)
-    repos.push({ label: "🔒 privados (empresa)", private: true, commits: cc.restrictedContributionsCount, lang: null, color: "#8b949e" });
+    repos.push({ label: "🔒 ultralims · privados", private: true, commits: cc.restrictedContributionsCount, lang: null, color: "#8b949e" });
   repos.sort((x, y) => y.commits - x.commits);
   const privCommits = byRepo.filter((r) => r.repository.isPrivate).reduce((s, r) => s + r.contributions.totalCount, 0);
   console.log(`atividade: total=${cc.contributionCalendar.totalContributions} commits=${cc.totalCommitContributions} restritas=${cc.restrictedContributionsCount} repos_privados_visiveis=${byRepo.filter((r) => r.repository.isPrivate).length}`);
@@ -109,11 +109,16 @@ export function renderDashboard(a, updatedAt) {
 
   // ── tiles
   const pctPriv = a.commits ? Math.round((a.privateCommits / a.commits) * 100) : 0;
+  const flat = a.calendar.flat(), year = new Date(updatedAt).getUTCFullYear();
+  const yearSum = flat.filter(([d]) => d.startsWith(String(year))).reduce((s, [, c]) => s + c, 0);
+  let longest = 0, run = 0, current = 0;
+  for (const [, c] of flat) { run = c ? run + 1 : 0; longest = Math.max(longest, run); }
+  for (let i = flat.length - 1; i >= 0; i--) { if (flat[i][1]) current++; else if (i === flat.length - 1) continue; else break; }
   const tiles = [
-    ["contribuições", fmt(a.total), `${a.activeDays} dias ativos`],
+    ["contribuições", fmt(a.total), `${fmt(yearSum)} em ${year} · ${a.activeDays} dias`],
     ["commits", fmt(a.commits), a.full ? `${pctPriv}% em privados` : "só públicos"],
+    a.tokenSeesPrivate ? ["repositórios", fmt(a.reposTouched), "com commits"] : ["maior streak", `${longest}d`, `atual: ${current}d seguidos`],
     ["pull requests", fmt(a.prs), `${fmt(a.reviews)} reviews`],
-    ["repositórios", fmt(a.reposTouched), "com commits"],
   ];
   const tw = (W - P * 2 - 12 * 3) / 4;
   tiles.forEach(([k, v, sub], i) => {
@@ -152,6 +157,25 @@ export function renderDashboard(a, updatedAt) {
   T.ramp.forEach((c, i) => o.push(`<rect x="${sx + i * (cs + 3)}" y="${ly}" width="${cs}" height="${cs}" rx="2" fill="${c}"/>`));
   o.push(`<text x="${sx + 6 * (cs + 3) + 4}" y="${ly + 9}" class="s">mais</text>`);
 
+  // ── sem token, não há horários dos commits privados: mostra contribuições por mês (inclui privados)
+  if (!a.tokenSeesPrivate) {
+    const my = 330;
+    o.push(`<text x="${P}" y="${my}" class="h">Ritmo</text><text x="${P + 52}" y="${my}" class="s">contribuições por mês</text>`);
+    const months = new Map();
+    for (const [d, c] of flat) months.set(d.slice(0, 7), (months.get(d.slice(0, 7)) || 0) + c);
+    const keys = [...months.keys()].slice(-12), vals = keys.map((k) => months.get(k));
+    const mmax = Math.max(1, ...vals), ph = 140, base = my + 24 + ph, slot = 396 / keys.length, bw = slot - 8;
+    const peak = vals.indexOf(Math.max(...vals));
+    for (let g = 0; g <= 2; g++) o.push(`<line x1="${P}" y1="${base - (ph * g) / 2}" x2="${P + 396}" y2="${base - (ph * g) / 2}" stroke="${T.grid}"/>`);
+    keys.forEach((k, i) => {
+      const h = (vals[i] / mmax) * ph, x = P + i * slot + 4, y = base - h, r = Math.min(3, h / 2);
+      if (h > 0) o.push(`<path class="in" style="animation-delay:${200 + i * 40}ms" fill="${i === peak ? T.ramp[5] : T.priv}" opacity="${i === peak ? 1 : 0.75}" d="M${x},${base} V${y + r} Q${x},${y} ${x + r},${y} H${x + bw - r} Q${x + bw},${y} ${x + bw},${y + r} V${base} Z"/>`);
+      o.push(`<text x="${x + bw / 2}" y="${base + 14}" class="s" text-anchor="middle">${MONTHS[Number(k.slice(5)) - 1]}</text>`);
+      if (i === peak) o.push(`<text x="${x + bw / 2}" y="${y - 5}" class="s" text-anchor="middle" style="fill:${T.ink}">${vals[i]}</text>`);
+    });
+    const best = flat.reduce((b, x) => (x[1] > b[1] ? x : b), ["", 0]);
+    o.push(`<text x="${P}" y="${base + 38}" class="l">recorde: <tspan fill="${T.ink}" font-weight="700">${best[1]} em ${new Date(best[0] + "T12:00:00Z").toLocaleDateString("pt-BR")}</tspan></text>`);
+  } else {
   // ── punch card (dia × hora)
   const py = 330, pcx = P + 30, pw2 = 15;
   o.push(`<text x="${P}" y="${py}" class="h">Quando eu codo</text><text x="${P + 128}" y="${py}" class="s">commits por dia da semana × hora (BRT)</text>`);
@@ -168,6 +192,8 @@ export function renderDashboard(a, updatedAt) {
   [0, 6, 12, 18, 23].forEach((h) => o.push(`<text x="${pcx + h * pw2 + 7}" y="${py + 22 + 7 * 22}" class="s" text-anchor="middle">${h}h</text>`));
   if (a.punch.flat().some(Boolean)) o.push(`<text x="${P}" y="${py + 22 + 7 * 22 + 22}" class="l">pico: <tspan fill="${T.ink}" font-weight="700">${WD[best[0]]} às ${best[1]}h</tspan></text>`);
 
+  }
+
   // ── onde (ranking de repos)
   const rx = 440, ry = 330, rw = W - P - rx;
   o.push(`<text x="${rx}" y="${ry}" class="h">Onde</text><text x="${rx + 44}" y="${ry}" class="s">commits por repositório</text>`);
@@ -183,7 +209,7 @@ export function renderDashboard(a, updatedAt) {
 
   // rodapé
   const note = a.tokenSeesPrivate ? "🔒 privados aparecem anonimizados: só contagens e horários, nunca nomes, mensagens ou código."
-    : a.full ? "🔒 contribuições privadas contadas no total; detalhes por repo exigem o token METRICS_TOKEN."
+    : a.full ? "🔒 privados entram só como números — nenhum nome, mensagem ou código sai dos repositórios."
     : "só atividade pública. Para incluir os privados, configure o secret METRICS_TOKEN.";
   o.push(`<line x1="${P}" y1="${H - 38}" x2="${W - P}" y2="${H - 38}" stroke="${T.border}"/>`);
   o.push(`<text x="${P}" y="${H - 16}" class="s">${esc(note)}</text>`);
