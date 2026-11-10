@@ -50,7 +50,7 @@ export async function fetchActivity(token, login) {
 
   // ranking: privados são anonimizados aqui, antes de qualquer coisa ser gravada
   let privN = 0;
-  const repos = byRepo.slice(0, 8).map((r) => {
+  const repos = byRepo.slice(0, 7).map((r) => {
     const R = r.repository;
     const owner = R.owner.login === login ? null : R.owner.login;
     return {
@@ -60,7 +60,12 @@ export async function fetchActivity(token, login) {
     };
   });
 
+  // contribuições privadas que o token não detalha (perfil com "Private contributions" ligado): entram como um bloco só
+  if (cc.restrictedContributionsCount > 0)
+    repos.push({ label: "🔒 privados (empresa)", private: true, commits: cc.restrictedContributionsCount, lang: null, color: "#8b949e" });
+  repos.sort((x, y) => y.commits - x.commits);
   const privCommits = byRepo.filter((r) => r.repository.isPrivate).reduce((s, r) => s + r.contributions.totalCount, 0);
+  console.log(`atividade: total=${cc.contributionCalendar.totalContributions} commits=${cc.totalCommitContributions} restritas=${cc.restrictedContributionsCount} repos_privados_visiveis=${byRepo.filter((r) => r.repository.isPrivate).length}`);
   const days = cc.contributionCalendar.weeks.flatMap((w) => w.contributionDays);
   return {
     full: privateSeen || cc.restrictedContributionsCount > 0,
