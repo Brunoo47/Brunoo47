@@ -3082,6 +3082,167 @@
     ]
    ],
    "at": "2026-11-10T10:27:17.255Z"
+  },
+  {
+   "user": "Brunoo47",
+   "cwd": "~",
+   "cmd": "help",
+   "out": [
+    [
+     [
+      "Comandos disponíveis:",
+      "p"
+     ]
+    ],
+    [
+     [
+      "  help                      ",
+      "g"
+     ],
+     [
+      "lista os comandos",
+      "m"
+     ]
+    ],
+    [
+     [
+      "  ls [-la] [dir]            ",
+      "g"
+     ],
+     [
+      "lista arquivos",
+      "m"
+     ]
+    ],
+    [
+     [
+      "  cd <dir>                  ",
+      "g"
+     ],
+     [
+      "muda de diretório (a sessão é compartilhada!)",
+      "m"
+     ]
+    ],
+    [
+     [
+      "  cat <arquivo>             ",
+      "g"
+     ],
+     [
+      "mostra um arquivo",
+      "m"
+     ]
+    ],
+    [
+     [
+      "  tree                      ",
+      "g"
+     ],
+     [
+      "árvore de diretórios",
+      "m"
+     ]
+    ],
+    [
+     [
+      "  neofetch                  ",
+      "g"
+     ],
+     [
+      "info do sistema",
+      "m"
+     ]
+    ],
+    [
+     [
+      "  htop                      ",
+      "g"
+     ],
+     [
+      "minhas estatísticas do GitHub ao vivo",
+      "m"
+     ]
+    ],
+    [
+     [
+      "  git log                   ",
+      "g"
+     ],
+     [
+      "meus últimos commits públicos",
+      "m"
+     ]
+    ],
+    [
+     [
+      "  ./contato.sh              ",
+      "g"
+     ],
+     [
+      "como falar comigo",
+      "m"
+     ]
+    ],
+    [
+     [
+      "  open <projeto>            ",
+      "g"
+     ],
+     [
+      "link de um projeto",
+      "m"
+     ]
+    ],
+    [
+     [
+      "  whoami                    ",
+      "g"
+     ],
+     [
+      "quem é você",
+      "m"
+     ]
+    ],
+    [
+     [
+      "  who                       ",
+      "g"
+     ],
+     [
+      "quem passou por aqui",
+      "m"
+     ]
+    ],
+    [
+     [
+      "  history                   ",
+      "g"
+     ],
+     [
+      "últimos comandos da sessão",
+      "m"
+     ]
+    ],
+    [
+     [
+      "  uptime  date  pwd  echo  clear  man",
+      "g"
+     ],
+     [
+      "",
+      "m"
+     ]
+    ],
+    [
+     [
+      "Dica: clique nos botões abaixo do terminal ou digite qualquer comando.",
+      "m"
+     ]
+    ]
+   ],
+   "at": "2026-11-10T10:32:12.038Z",
+   "issue": 1
   }
  ],
  "history": [
@@ -3089,14 +3250,19 @@
    "user": "Brunoo47",
    "cmd": "neofetch",
    "at": "2026-11-10T10:27:17.255Z"
+  },
+  {
+   "user": "Brunoo47",
+   "cmd": "help",
+   "at": "2026-11-10T10:32:12.038Z"
   }
  ],
  "users": {
   "Brunoo47": {
    "n": 0,
-   "count": 1,
+   "count": 2,
    "first": "2026-11-10T10:27:17.255Z",
-   "last": "2026-11-10T10:27:17.255Z"
+   "last": "2026-11-10T10:32:12.038Z"
   }
  },
  "clearAt": 0,
