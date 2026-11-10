@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="840" height="470" viewBox="0 0 840 470" role="img" aria-labelledby="t d">
+<title id="t">Dashboard GitHub de Brunoo47</title>
+<desc id="d">17 contribuições no último ano, 12 commits, 0 pull requests, streak atual de 1 dias, maior streak de 1 dias.</desc>
+<style>
+    text{font-family:'Segoe UI',Ubuntu,'Helvetica Neue',sans-serif;fill:#e6edf3}
+    .lbl{font-size:12px;fill:#9da7b3} .sm{font-size:11px;fill:#6e7681} .h{font-size:14px;font-weight:600}
+    .big{font-size:26px;font-weight:700} .mono{font-family:'Fira Code',Consolas,monospace}
+    .bar{transform-box:fill-box;transform-origin:bottom;animation:grow .8s cubic-bezier(.2,.8,.2,1) both}
+    .fade{animation:fade .6s ease both}
+    .blink{animation:blink 1.1s steps(1) infinite}
+    @keyframes grow{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+    @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+    @keyframes blink{50%{opacity:0}}
+    @media (prefers-reduced-motion: reduce){.bar,.fade,.blink{animation:none}}
+  </style>
+<rect x=".5" y=".5" width="839" height="469" rx="12" fill="#0d1117" stroke="#30363d"/>
+<circle cx="30" cy="22" r="5" fill="#ff5f57"/><circle cx="46" cy="22" r="5" fill="#febc2e"/><circle cx="62" cy="22" r="5" fill="#28c840"/>
+<text x="80" y="26" class="sm mono">~/Brunoo47 $ gh dashboard --last-year<tspan class="blink" fill="#a78bfa"> ▋</tspan></text>
+<text x="816" y="26" class="sm" text-anchor="end">atualizado em 10/11/2026</text>
+<line x1="0" y1="40" x2="840" y2="40" stroke="#30363d"/>
+<g class="fade" style="animation-delay:0ms">
+<rect x="24" y="56" width="148.8" height="76" rx="8" fill="#161b22" stroke="#30363d"/>
+<text x="38" y="78" class="lbl">Contribuições</text>
+<text x="38" y="108" class="big">17</text>
+<text x="38" y="124" class="sm">último ano</text>
+</g>
+<g class="fade" style="animation-delay:80ms">
+<rect x="184.8" y="56" width="148.8" height="76" rx="8" fill="#161b22" stroke="#30363d"/>
+<text x="198.8" y="78" class="lbl">Commits</text>
+<text x="198.8" y="108" class="big">12</text>
+<text x="198.8" y="124" class="sm">último ano</text>
+</g>
+<g class="fade" style="animation-delay:160ms">
+<rect x="345.6" y="56" width="148.8" height="76" rx="8" fill="#161b22" stroke="#30363d"/>
+<text x="359.6" y="78" class="lbl">Pull requests</text>
+<text x="359.6" y="108" class="big">0</text>
+<text x="359.6" y="124" class="sm">0 reviews</text>
+</g>
+<g class="fade" style="animation-delay:240ms">
+<rect x="506.40000000000003" y="56" width="148.8" height="76" rx="8" fill="#161b22" stroke="#30363d"/>
+<text x="520.4000000000001" y="78" class="lbl">Streak atual</text>
+<text x="520.4000000000001" y="108" class="big">1d</text>
+<text x="520.4000000000001" y="124" class="sm">recorde: 1d</text>
+</g>
+<g class="fade" style="animation-delay:320ms">
+<rect x="667.2" y="56" width="148.8" height="76" rx="8" fill="#161b22" stroke="#30363d"/>
+<text x="681.2" y="78" class="lbl">Repositórios</text>
+<text x="681.2" y="108" class="big">5</text>
+<text x="681.2" y="124" class="sm">★ 6 · 94 seguidores</text>
+</g>
+<text x="24" y="160" class="h">Contribuições por semana</text>
+<line x1="52" y1="278" x2="816" y2="278" stroke="#21262d"/>
+<text x="44" y="282" class="sm" text-anchor="end">0</text>
+<line x1="52" y1="253" x2="816" y2="253" stroke="#21262d"/>
+<text x="44" y="257" class="sm" text-anchor="end">1</text>
+<line x1="52" y1="228" x2="816" y2="228" stroke="#21262d"/>
+<text x="44" y="232" class="sm" text-anchor="end">2</text>
+<line x1="52" y1="203" x2="816" y2="203" stroke="#21262d"/>
+<text x="44" y="207" class="sm" text-anchor="end">3</text>
+<line x1="52" y1="178" x2="816" y2="178" stroke="#21262d"/>
+<text x="44" y="182" class="sm" text-anchor="end">4</text>
+<text x="99.84615384615384" y="294" class="sm">dez</text>
+<path class="bar" style="animation-delay:48ms" fill="#4c3a8f" d="M114.46153846153845,278 V256 Q114.46153846153845,253 117.46153846153845,253 H124.07692307692307 Q127.07692307692307,253 127.07692307692307,256 V278 Z"><title>Semana de 2025-12-14: 1</title></path>
+<text x="158.30769230769232" y="294" class="sm">jan</text>
+<path class="bar" style="animation-delay:132ms" fill="#4c3a8f" d="M216.76923076923077,278 V206 Q216.76923076923077,203 219.76923076923077,203 H226.3846153846154 Q229.3846153846154,203 229.3846153846154,206 V278 Z"><title>Semana de 2026-02-01: 3</title></path>
+<text x="216.76923076923077" y="294" class="sm">fev</text>
+<path class="bar" style="animation-delay:144ms" fill="#4c3a8f" d="M231.3846153846154,278 V231 Q231.3846153846154,228 234.3846153846154,228 H241 Q244,228 244,231 V278 Z"><title>Semana de 2026-02-08: 2</title></path>
+<text x="275.2307692307692" y="294" class="sm">mar</text>
+<text x="348.3076923076923" y="294" class="sm">abr</text>
+<path class="bar" style="animation-delay:264ms" fill="#4c3a8f" d="M377.53846153846155,278 V206 Q377.53846153846155,203 380.53846153846155,203 H387.1538461538462 Q390.1538461538462,203 390.1538461538462,206 V278 Z"><title>Semana de 2026-04-19: 3</title></path>
+<text x="406.7692307692308" y="294" class="sm">mai</text>
+<text x="479.8461538461538" y="294" class="sm">jun</text>
+<path class="bar" style="animation-delay:360ms" fill="#a78bfa" d="M494.46153846153845,278 V181 Q494.46153846153845,178 497.46153846153845,178 H504.0769230769231 Q507.0769230769231,178 507.0769230769231,181 V278 Z"><title>Semana de 2026-06-14: 4</title></path>
+<text x="500.7692307692308" y="172" class="sm" text-anchor="middle" style="fill:#e6edf3">4</text>
+<text x="538.3076923076924" y="294" class="sm">jul</text>
+<text x="596.7692307692307" y="294" class="sm">ago</text>
+<path class="bar" style="animation-delay:468ms" fill="#4c3a8f" d="M626,278 V256 Q626,253 629,253 H635.6153846153846 Q638.6153846153846,253 638.6153846153846,256 V278 Z"><title>Semana de 2026-08-16: 1</title></path>
+<text x="669.8461538461538" y="294" class="sm">set</text>
+<text x="728.3076923076923" y="294" class="sm">out</text>
+<path class="bar" style="animation-delay:564ms" fill="#4c3a8f" d="M742.9230769230769,278 V256 Q742.9230769230769,253 745.9230769230769,253 H752.5384615384615 Q755.5384615384615,253 755.5384615384615,256 V278 Z"><title>Semana de 2026-10-11: 1</title></path>
+<path class="bar" style="animation-delay:576ms" fill="#4c3a8f" d="M757.5384615384615,278 V256 Q757.5384615384615,253 760.5384615384615,253 H767.1538461538462 Q770.1538461538462,253 770.1538461538462,256 V278 Z"><title>Semana de 2026-10-18: 1</title></path>
+<text x="786.7692307692307" y="294" class="sm">nov</text>
+<path class="bar" style="animation-delay:612ms" fill="#4c3a8f" d="M801.3846153846154,278 V256 Q801.3846153846154,253 804.3846153846154,253 H811 Q814,253 814,256 V278 Z"><title>Semana de 2026-11-08: 1</title></path>
+<text x="24" y="318" class="h">Linguagens</text>
+<rect x="24" y="332" width="331.5449769198489" height="10" rx="3" fill="#f1e05a"><title>JavaScript 71.0%</title></rect>
+<rect x="357.5449769198489" y="332" width="94.29733948804028" height="10" rx="0" fill="#3572A5"><title>Python 20.5%</title></rect>
+<rect x="453.8423164078892" y="332" width="29.724112463281582" height="10" rx="0" fill="#663399"><title>CSS 6.7%</title></rect>
+<rect x="485.5664288711708" y="332" width="3.8743096936634496" height="10" rx="0" fill="#4F5D95"><title>PHP 1.2%</title></rect>
+<rect x="491.44073856483425" y="332" width="0.27682752832564006" height="10" rx="0" fill="#e34c26"><title>HTML 0.5%</title></rect>
+<rect x="493.7175660931599" y="332" width="0.2824339068401175" height="10" rx="3" fill="#8b949e"><title>Outras 0.1%</title></rect>
+<g class="fade" style="animation-delay:300ms"><circle cx="29" cy="368" r="5" fill="#f1e05a"/>
+<text x="40" y="372" class="lbl" style="fill:#e6edf3">JavaScript</text>
+<text x="224" y="372" class="lbl" text-anchor="end">71.0%</text></g>
+<g class="fade" style="animation-delay:360ms"><circle cx="269" cy="368" r="5" fill="#3572A5"/>
+<text x="280" y="372" class="lbl" style="fill:#e6edf3">Python</text>
+<text x="464" y="372" class="lbl" text-anchor="end">20.5%</text></g>
+<g class="fade" style="animation-delay:420ms"><circle cx="29" cy="392" r="5" fill="#663399"/>
+<text x="40" y="396" class="lbl" style="fill:#e6edf3">CSS</text>
+<text x="224" y="396" class="lbl" text-anchor="end">6.7%</text></g>
+<g class="fade" style="animation-delay:480ms"><circle cx="269" cy="392" r="5" fill="#4F5D95"/>
+<text x="280" y="396" class="lbl" style="fill:#e6edf3">PHP</text>
+<text x="464" y="396" class="lbl" text-anchor="end">1.2%</text></g>
+<g class="fade" style="animation-delay:540ms"><circle cx="29" cy="416" r="5" fill="#e34c26"/>
+<text x="40" y="420" class="lbl" style="fill:#e6edf3">HTML</text>
+<text x="224" y="420" class="lbl" text-anchor="end">0.5%</text></g>
+<g class="fade" style="animation-delay:600ms"><circle cx="269" cy="416" r="5" fill="#8b949e"/>
+<text x="280" y="420" class="lbl" style="fill:#e6edf3">Outras</text>
+<text x="464" y="420" class="lbl" text-anchor="end">0.1%</text></g>
+<text x="540" y="318" class="h">Dia mais produtivo</text>
+<text x="559.7142857142857" y="442" class="sm" text-anchor="middle">Dom</text>
+<path class="bar" style="animation-delay:450ms" fill="#4c3a8f" d="M584.4285714285714,426 V407.2857142857143 Q584.4285714285714,404.2857142857143 587.4285714285714,404.2857142857143 H610.8571428571429 Q613.8571428571429,404.2857142857143 613.8571428571429,407.2857142857143 V426 Z"><title>Seg: 2</title></path>
+<text x="599.1428571428571" y="442" class="sm" text-anchor="middle">Seg</text>
+<path class="bar" style="animation-delay:500ms" fill="#4c3a8f" d="M623.8571428571429,426 V396.42857142857144 Q623.8571428571429,393.42857142857144 626.8571428571429,393.42857142857144 H650.2857142857143 Q653.2857142857143,393.42857142857144 653.2857142857143,396.42857142857144 V426 Z"><title>Ter: 3</title></path>
+<text x="638.5714285714286" y="442" class="sm" text-anchor="middle">Ter</text>
+<path class="bar" style="animation-delay:550ms" fill="#4c3a8f" d="M663.2857142857143,426 V396.42857142857144 Q663.2857142857143,393.42857142857144 666.2857142857143,393.42857142857144 H689.7142857142858 Q692.7142857142858,393.42857142857144 692.7142857142858,396.42857142857144 V426 Z"><title>Qua: 3</title></path>
+<text x="678" y="442" class="sm" text-anchor="middle">Qua</text>
+<path class="bar" style="animation-delay:600ms" fill="#4c3a8f" d="M702.7142857142858,426 V407.2857142857143 Q702.7142857142858,404.2857142857143 705.7142857142858,404.2857142857143 H729.1428571428572 Q732.1428571428572,404.2857142857143 732.1428571428572,407.2857142857143 V426 Z"><title>Qui: 2</title></path>
+<text x="717.4285714285714" y="442" class="sm" text-anchor="middle">Qui</text>
+<path class="bar" style="animation-delay:650ms" fill="#a78bfa" d="M742.1428571428571,426 V353 Q742.1428571428571,350 745.1428571428571,350 H768.5714285714286 Q771.5714285714286,350 771.5714285714286,353 V426 Z"><title>Sex: 7</title></path>
+<text x="756.8571428571428" y="442" class="sm" text-anchor="middle" style="fill:#e6edf3;font-weight:600">Sex</text>
+<text x="796.2857142857142" y="442" class="sm" text-anchor="middle">Sáb</text>
+<line x1="540" y1="426" x2="816" y2="426" stroke="#30363d"/>
+</svg>
