@@ -4,14 +4,14 @@
  "followers": 94,
  "repos": 5,
  "stars": 6,
- "total": 21,
+ "total": 23,
  "prs": 0,
- "commitsYear": 16,
- "commitsAllTime": 70,
+ "commitsYear": 18,
+ "commitsAllTime": 72,
  "load": [
-  5,
-  5,
-  7
+  7,
+  7,
+  9
  ],
  "current": 1,
  "longest": 1,
@@ -41,7 +41,7 @@
   1,
   0,
   0,
-  5
+  7
  ],
  "langs": [
   {
@@ -78,40 +78,40 @@
  "commits": [
   {
    "repo": "Brunoo47",
+   "sha": "2ff356f",
+   "msg": "fix: ignora commits automáticos no git log do terminal",
+   "date": "2026-11-10T10:28:08Z"
+  },
+  {
+   "repo": "Brunoo47",
+   "sha": "e8018be",
+   "msg": "chore: remove assets antigos do neofetch",
+   "date": "2026-11-10T10:27:58Z"
+  },
+  {
+   "repo": "Brunoo47",
    "sha": "748fae4",
    "msg": "feat: perfil vira um terminal interativo",
    "date": "2026-11-10T10:27:00Z"
-  },
-  {
-   "repo": "Brunoo47",
-   "sha": "623dbd0",
-   "msg": "chore: atualiza dashboard do perfil 🤖",
-   "date": "2026-11-10T10:19:39Z"
-  },
-  {
-   "repo": "Brunoo47",
-   "sha": "4d58281",
-   "msg": "feat: neofetch com ASCII do avatar e 4 em Linha jogável contra IA",
-   "date": "2026-11-10T10:19:15Z"
-  },
-  {
-   "repo": "Brunoo47",
-   "sha": "45a8e8f",
-   "msg": "chore: atualiza dashboard do perfil 🤖",
-   "date": "2026-11-10T10:11:27Z"
-  },
-  {
-   "repo": "Brunoo47",
-   "sha": "93856a4",
-   "msg": "feat: README novo com dashboard próprio, cobrinha e contribuições 3D",
-   "date": "2026-11-10T10:08:46Z"
   },
   {
    "repo": "demolay-ai-assistant",
    "sha": "9e78186",
    "msg": "README: capa com badges, preview, destaques e guia completo",
    "date": "2026-06-19T19:27:07Z"
+  },
+  {
+   "repo": "demolay-ai-assistant",
+   "sha": "e0891e0",
+   "msg": "Serve /api/chat no `npm run dev` com fallback de modo demonstração",
+   "date": "2026-06-19T19:23:06Z"
+  },
+  {
+   "repo": "demolay-ai-assistant",
+   "sha": "951f604",
+   "msg": "Reestrutura assistente DeMolay em app React+Vite com backend serverless",
+   "date": "2026-06-19T19:20:08Z"
   }
  ],
- "fetchedAt": "2026-11-10T10:27:17.255Z"
+ "fetchedAt": "2026-11-10T10:28:20.412Z"
 }
