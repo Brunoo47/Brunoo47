@@ -2,7 +2,7 @@ name: ⌨️ Perfil
 
 on:
   schedule:
-    - cron: "0 9 * * *" # todo dia às 06h (BRT): novo comando no terminal + dashboard atualizado
+    - cron: "0 9 * * *" # todo dia às 06h (BRT): novo comando no terminal + dashboard atualizado (inclui contribuições privadas)
   workflow_dispatch:
   push:
     branches: [master]
