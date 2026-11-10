@@ -4,14 +4,14 @@
  "followers": 94,
  "repos": 5,
  "stars": 6,
- "total": 25,
+ "total": 26,
  "prs": 0,
- "commitsYear": 19,
- "commitsAllTime": 73,
+ "commitsYear": 20,
+ "commitsAllTime": 74,
  "load": [
-  9,
-  9,
-  11
+  10,
+  10,
+  12
  ],
  "current": 1,
  "longest": 1,
@@ -41,7 +41,7 @@
   1,
   0,
   0,
-  9
+  10
  ],
  "langs": [
   {
@@ -78,21 +78,15 @@
  "commits": [
   {
    "repo": "Brunoo47",
+   "sha": "4106e3e",
+   "msg": "feat: dashboard mostra contribuições privadas mesmo sem detalhe por repo",
+   "date": "2026-11-10T10:38:54Z"
+  },
+  {
+   "repo": "Brunoo47",
    "sha": "a868d29",
    "msg": "feat: dashboard de atividade (públicos + privados anonimizados); term…",
    "date": "2026-11-10T10:36:08Z"
-  },
-  {
-   "repo": "Brunoo47",
-   "sha": "2ff356f",
-   "msg": "fix: ignora commits automáticos no git log do terminal",
-   "date": "2026-11-10T10:28:08Z"
-  },
-  {
-   "repo": "Brunoo47",
-   "sha": "e8018be",
-   "msg": "chore: remove assets antigos do neofetch",
-   "date": "2026-11-10T10:27:58Z"
   },
   {
    "repo": "demolay-ai-assistant",
@@ -111,7 +105,13 @@
    "sha": "951f604",
    "msg": "Reestrutura assistente DeMolay em app React+Vite com backend serverless",
    "date": "2026-06-19T19:20:08Z"
+  },
+  {
+   "repo": "app-aws",
+   "sha": "a3d2b56",
+   "msg": "Change PHP version in README",
+   "date": "2026-02-09T18:17:18Z"
   }
  ],
- "fetchedAt": "2026-11-10T10:36:30.787Z"
+ "fetchedAt": "2026-11-10T10:39:05.511Z"
 }
