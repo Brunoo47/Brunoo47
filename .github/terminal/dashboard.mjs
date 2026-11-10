@@ -115,10 +115,11 @@ export function renderDashboard(a, updatedAt) {
   for (const [, c] of flat) { run = c ? run + 1 : 0; longest = Math.max(longest, run); }
   for (let i = flat.length - 1; i >= 0; i--) { if (flat[i][1]) current++; else if (i === flat.length - 1) continue; else break; }
   const tiles = [
-    ["contribuições", fmt(a.total), `${fmt(yearSum)} em ${year} · ${a.activeDays} dias`],
+    ["contribuições", fmt(a.total), `${fmt(yearSum)} em ${year}`],
     ["commits", fmt(a.commits), a.full ? `${pctPriv}% em privados` : "só públicos"],
     a.tokenSeesPrivate ? ["repositórios", fmt(a.reposTouched), "com commits"] : ["maior streak", `${longest}d`, `atual: ${current}d seguidos`],
-    ["pull requests", fmt(a.prs), `${fmt(a.reviews)} reviews`],
+    // PRs e reviews de repos privados só são separados com o token; sem ele, mostra dias ativos em vez de um "0" enganoso
+    a.tokenSeesPrivate ? ["PRs + reviews", fmt(a.prs + a.reviews), `${fmt(a.prs)} PRs · ${fmt(a.reviews)} reviews`] : ["dias ativos", fmt(a.activeDays), "nos últimos 12 meses"],
   ];
   const tw = (W - P * 2 - 12 * 3) / 4;
   tiles.forEach(([k, v, sub], i) => {
