@@ -4,14 +4,14 @@
  "followers": 94,
  "repos": 5,
  "stars": 6,
- "total": 24,
+ "total": 25,
  "prs": 0,
- "commitsYear": 18,
- "commitsAllTime": 72,
+ "commitsYear": 19,
+ "commitsAllTime": 73,
  "load": [
-  8,
-  8,
-  10
+  9,
+  9,
+  11
  ],
  "current": 1,
  "longest": 1,
@@ -41,7 +41,7 @@
   1,
   0,
   0,
-  8
+  9
  ],
  "langs": [
   {
@@ -78,6 +78,12 @@
  "commits": [
   {
    "repo": "Brunoo47",
+   "sha": "a868d29",
+   "msg": "feat: dashboard de atividade (públicos + privados anonimizados); term…",
+   "date": "2026-11-10T10:36:08Z"
+  },
+  {
+   "repo": "Brunoo47",
    "sha": "2ff356f",
    "msg": "fix: ignora commits automáticos no git log do terminal",
    "date": "2026-11-10T10:28:08Z"
@@ -87,12 +93,6 @@
    "sha": "e8018be",
    "msg": "chore: remove assets antigos do neofetch",
    "date": "2026-11-10T10:27:58Z"
-  },
-  {
-   "repo": "Brunoo47",
-   "sha": "748fae4",
-   "msg": "feat: perfil vira um terminal interativo",
-   "date": "2026-11-10T10:27:00Z"
   },
   {
    "repo": "demolay-ai-assistant",
@@ -113,5 +113,5 @@
    "date": "2026-06-19T19:20:08Z"
   }
  ],
- "fetchedAt": "2026-11-10T10:32:11.709Z"
+ "fetchedAt": "2026-11-10T10:36:30.787Z"
 }
