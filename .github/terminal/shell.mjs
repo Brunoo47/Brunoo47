@@ -1,24 +1,21 @@
 #!/usr/bin/env node
-// Terminal interativo do perfil.
-// Visitantes abrem uma issue com título "$ <comando>"; este script executa o comando
-// num filesystem virtual, guarda a sessão compartilhada e redesenha o terminal (SVG) e o README.
+// Terminal ilustrativo do perfil + dashboard de atividade.
+// Executa uma sessão de comandos num filesystem virtual e desenha o terminal (SVG), o dashboard e o README.
 //
-//   node shell.mjs run            -> atualiza dados do GitHub, processa issues "$ ...", renderiza (Actions)
-//   node shell.mjs reply          -> comenta a saída em cada issue processada e fecha
-//   node shell.mjs local "ls -la" -> executa localmente como @local (teste; use FIXTURE=dados.json)
+//   node shell.mjs              -> sessão do dia (Actions)
+//   node shell.mjs "git log"    -> renderiza só esse comando (teste; use FIXTURE=dados.json)
 // Zero dependências (Node 20+).
 
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
-import { FS, HOME, COMMAND_KEYS } from "./fs.mjs";
+import { FS, HOME } from "./fs.mjs";
+import { fetchActivity, renderDashboard } from "./dashboard.mjs";
 
 const REPO = process.env.GITHUB_REPOSITORY || "Brunoo47/Brunoo47";
 const OWNER = REPO.split("/")[0];
 const ROOT = new URL("../../", import.meta.url).pathname;
-const STATE_FILE = ROOT + ".github/terminal/state.json";
 const DATA_FILE = ROOT + ".github/terminal/github.json";
 const README = ROOT + "README.md";
 const ASSETS = ROOT + "assets/";
-const REPLIES = process.env.REPLIES_FILE || "/tmp/terminal-replies.json";
 const AVATAR = JSON.parse(readFileSync(ROOT + ".github/data/avatar.json", "utf8"));
 const COLS = 100, MAX_CMD = 60;
 
@@ -189,7 +186,7 @@ function exec(raw, ctx) {
         [["Host", "p"], [": Ultra Lims · Joinville - SC", "w"]],
         [["Kernel", "p"], [": PHP · Slim", "w"]],
         [["Uptime", "p"], [`: ${since(data.createdAt)}`, "w"]],
-        [["Shell", "p"], [": bash (interativo via issues)", "w"]],
+        [["Shell", "p"], [": bash", "w"]],
         [["IDE", "p"], [": IntelliJ IDEA · VS Code", "w"]],
         [["Backend", "p"], [": PHP · Java · Spring Boot · Python", "w"]],
         [["Frontend", "p"], [": TypeScript · Next.js", "w"]],
@@ -326,33 +323,33 @@ function clip(segs, max = COLS) {
 }
 
 function renderTerminal(state, data) {
-  const FS_ = 13, LH = 17, CW = 7.8, PADX = 22, TOP = 52, BODY_LINES = 40;
-  const W = Math.round(PADX * 2 + COLS * CW), H = TOP + BODY_LINES * LH + 18;
+  const FS_ = 13, LH = 17, CW = 7.8, PADX = 22, TOP = 52, MAX_LINES = 40;
+  const W = Math.round(PADX * 2 + COLS * CW);
 
   // monta as linhas: banner fixo + motd + sessão (rolada até o fim) + prompt atual
   const head = [
     ...BANNER.map((b) => [[b, "p"]]),
     [["Full-stack developer · PHP + Slim · Java + Spring · Next.js · Joinville - SC", "m"]],
-    [["Este terminal é de verdade: clique num comando abaixo ou digite o seu. ", "w"], ["help", "g"], [" mostra tudo.", "w"]],
     [["─".repeat(COLS), "#30363d"]],
   ];
   const visible = state.session.slice(state.clearAt);
   const blocks = visible.map((e, i) => ({ e, lines: [[...prompt(e.user, e.cwd), [e.cmd, "w"]], ...e.out], newest: i === visible.length - 1 }));
-  const room = BODY_LINES - head.length - 1;
+  const room = MAX_LINES - head.length - 1;
   let flat = blocks.flatMap((b) => b.lines.map((l, j) => ({ l, newest: b.newest, j, isCmd: j === 0, cmdLen: segLen(prompt(b.e.user, b.e.cwd)), cmdText: b.e.cmd })));
   if (flat.length > room) flat = flat.slice(flat.length - room);
-  const pr = { l: [...prompt("visitante", pretty(state.cwd))], prompt: true };
+  const pr = { l: [...prompt(OWNER, pretty(state.cwd))], prompt: true };
+  const BODY_LINES = head.length + flat.length + 1, H = TOP + BODY_LINES * LH + 10;
 
   const o = [];
   o.push(`<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-labelledby="tt td">`);
-  o.push(`<title id="tt">Terminal interativo de ${esc(OWNER)}</title><desc id="td">Sessão compartilhada: último comando "${esc(visible.at(-1)?.cmd || "")}" por ${esc(visible.at(-1)?.user || "")}.</desc>`);
+  o.push(`<title id="tt">Terminal de ${esc(OWNER)}</title><desc id="td">Sessão compartilhada: último comando "${esc(visible.at(-1)?.cmd || "")}" por ${esc(visible.at(-1)?.user || "")}.</desc>`);
   o.push(`<defs><linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0f1320"/><stop offset="1" stop-color="#0a0d14"/></linearGradient>
   <linearGradient id="ban" gradientUnits="userSpaceOnUse" x1="22" y1="0" x2="370" y2="0"><stop offset="0" stop-color="#a78bfa"/><stop offset=".5" stop-color="#c084fc"/><stop offset="1" stop-color="#56d4dd"/></linearGradient></defs>`);
   o.push(`<style>text{font-family:'JetBrains Mono','Fira Code','Cascadia Code','DejaVu Sans Mono',Menlo,Consolas,monospace;font-size:${FS_}px;white-space:pre}</style>`);
   o.push(`<rect width="${W}" height="${H}" rx="12" fill="url(#bg)"/><rect x=".5" y=".5" width="${W - 1}" height="${H - 1}" rx="12" fill="none" stroke="#30363d"/>`);
   o.push(`<rect x="1" y="1" width="${W - 2}" height="34" rx="11" fill="#161b22"/><rect x="1" y="24" width="${W - 2}" height="11" fill="#161b22"/><line x1="0" y1="35" x2="${W}" y2="35" stroke="#30363d"/>`);
   o.push(`<circle cx="22" cy="18" r="6" fill="#ff5f57"/><circle cx="42" cy="18" r="6" fill="#febc2e"/><circle cx="62" cy="18" r="6" fill="#28c840"/>`);
-  o.push(`<text x="${W / 2}" y="22" text-anchor="middle" fill="#8b949e" style="font-size:12px">visitante@github: ${esc(pretty(state.cwd))} — bash — ${COLS}×${BODY_LINES}</text>`);
+  o.push(`<text x="${W / 2}" y="22" text-anchor="middle" fill="#8b949e" style="font-size:12px">${OWNER.toLowerCase()}@github: ${esc(pretty(state.cwd))} — bash — ${COLS}×${BODY_LINES}</text>`);
 
   const lineXml = (segs, y, attrs = "", inner = "") => `<text x="${PADX}" y="${y}" xml:space="preserve"${attrs}>${clip(segs).map(([t, c]) => `<tspan fill="${color(c)}">${esc(t)}</tspan>`).join("")}${inner}</text>`;
   let y = TOP;
@@ -401,89 +398,40 @@ function renderKey(label) {
 </svg>`;
 }
 
-function issueUrl(title, body) { return `https://github.com/${REPO}/issues/new?title=${encodeURIComponent(title)}&body=${encodeURIComponent(body)}`; }
-const BODY_KEY = "Só clicar em **Create** — o comando roda em ~20s e a saída aparece no terminal do perfil e aqui nos comentários.\n\n> Não precisa escrever nada.";
-const BODY_FREE = "Digite seu comando no **título**, depois do `$ ` (ex.: `$ cat sobre.md`, `$ cd projetos`, `$ git log`).\n\nDepois é só clicar em **Create**. Não sabe por onde começar? Use `$ help`.";
-
-function renderReadme(state, data) {
-  const v = `${state.session.length}-${state.history.length}`;
-  const keys = COMMAND_KEYS.map((k) => `<a href="${issueUrl("$ " + k, BODY_KEY)}"><img src="./assets/keys/${k.replace(/[^a-z0-9]+/gi, "_")}.svg" alt="$ ${k}" /></a>`).join("\n  ");
-  const recent = Object.entries(state.users).sort((a, b) => b[1].last.localeCompare(a[1].last)).slice(0, 14);
-  const who = recent.length ? recent.map(([u]) => `<a href="https://github.com/${u}"><img src="https://github.com/${u}.png?size=64" width="32" height="32" alt="@${u}" title="@${u}" /></a>`).join(" ") : "";
+function renderReadme(data) {
   return `<!-- Este README é gerado por .github/terminal/shell.mjs — edite o script, não este arquivo. -->
 <p align="center">
-  <a href="${issueUrl("$ ", BODY_FREE)}"><img src="./assets/terminal.svg?v=${v}" alt="Terminal interativo do ${OWNER}. Último comando: ${esc(state.session.at(-1)?.cmd || "")}" width="100%" /></a>
+  <img src="./assets/terminal.svg?v=${Date.parse(data.fetchedAt)}" alt="Terminal do ${OWNER} rodando ${esc(SESSION.at(-1))}" width="100%" />
 </p>
 
 <p align="center">
-  ${keys}
+  <img src="./assets/dashboard.svg?v=${Date.parse(data.fetchedAt)}" alt="Dashboard de atividade dos últimos 12 meses, incluindo repositórios privados de forma anonimizada" width="100%" />
 </p>
 
-<p align="center">
-  <a href="${issueUrl("$ ", BODY_FREE)}"><b>⌨️ Digitar meu próprio comando</b></a>
-</p>
-${who ? `
-<p align="center"><sub><code>$ who</code> — passaram por este terminal</sub><br/><br/>${who}</p>
-` : ""}
-<details>
-<summary><sub>Como isso funciona?</sub></summary>
-<br/>
-
-Cada botão abre uma issue com o título <code>$ comando</code>. Um <a href="./.github/workflows/terminal.yml">GitHub Action</a> executa o comando num <a href="./.github/terminal/fs.mjs">filesystem virtual</a>, guarda a sessão (compartilhada entre todos os visitantes — se alguém der <code>cd</code>, todo mundo muda de pasta), redesenha o terminal em SVG com a animação de digitação e responde na sua issue com a saída. Os dados de <code>htop</code>, <code>neofetch</code> e <code>git log</code> vêm da API do GitHub em tempo real.
-
-<sub>Atualizado em ${new Date(data.fetchedAt).toLocaleString("pt-BR", { timeZone: "America/Sao_Paulo", dateStyle: "short", timeStyle: "short" })}</sub>
-</details>
+<p align="center"><sub>Gerado todo dia por <a href="./.github/terminal">scripts próprios</a> no GitHub Actions · o comando do terminal muda a cada dia</sub></p>
 `;
 }
 
-function writeAll(state, data) {
-  mkdirSync(ASSETS + "keys", { recursive: true });
-  writeFileSync(ASSETS + "terminal.svg", renderTerminal(state, data));
-  for (const k of COMMAND_KEYS) writeFileSync(`${ASSETS}keys/${k.replace(/[^a-z0-9]+/gi, "_")}.svg`, renderKey(k));
-  writeFileSync(README, renderReadme(state, data));
-  writeFileSync(STATE_FILE, JSON.stringify(state, null, 1) + "\n");
-  writeFileSync(DATA_FILE, JSON.stringify(data, null, 1) + "\n");
-}
-
-const plain = (out) => out.map((segs) => segs.map(([t]) => t).join("").replace(/\s+$/, "")).join("\n");
-
-// ════════════════════════════ GitHub API ════════════════════════════
-async function api(path, opts = {}) {
-  const res = await fetch(`https://api.github.com${path}`, { ...opts, headers: { Authorization: `Bearer ${process.env.GITHUB_TOKEN}`, Accept: "application/vnd.github+json", "User-Agent": "profile-terminal", "Content-Type": "application/json" } });
-  if (!res.ok) throw new Error(`${opts.method || "GET"} ${path} -> ${res.status} ${await res.text()}`);
-  return res.status === 204 ? null : res.json();
-}
-
 // ════════════════════════════ main ════════════════════════════
-const [mode, arg] = process.argv.slice(2);
-const state = loadState();
+// Sessão ilustrativa: um "ls" e depois um comando que muda a cada dia.
+const ROTATION = ["neofetch", "cat sobre.md", "git log", "tree", "htop", "cat stack.json"];
+const day = Math.floor(Date.now() / 86400e3);
+const SESSION = ["ls", ROTATION[day % ROTATION.length]];
+
 let data;
 try { data = await fetchGithub(); }
 catch (e) { if (!existsSync(DATA_FILE)) throw e; console.warn("usando cache:", e.message); data = JSON.parse(readFileSync(DATA_FILE, "utf8")); }
 
-if (!state.seeded) { for (const c of ["neofetch"]) run(state, OWNER, c, data); state.seeded = true; }
+let activity;
+if (process.env.ACTIVITY_FIXTURE) activity = JSON.parse(readFileSync(process.env.ACTIVITY_FIXTURE, "utf8"));
+else if (process.env.GITHUB_TOKEN) activity = await fetchActivity(process.env.GITHUB_TOKEN, OWNER);
 
-if (mode === "run") {
-  const replies = [];
-  if (process.env.GITHUB_TOKEN && !process.env.FIXTURE) {
-    const issues = (await api(`/repos/${REPO}/issues?state=open&per_page=50&sort=created&direction=asc`)).filter((i) => !i.pull_request && i.title.trim().startsWith("$"));
-    for (const i of issues) {
-      const raw = i.title.trim().replace(/^\$\s*/, "");
-      const r = run(state, i.user.login, raw, data, i.number);
-      console.log(`#${i.number} @${i.user.login}: $ ${r.cmd}`);
-      replies.push({ n: i.number, cmd: r.cmd, text: plain(r.out) });
-    }
-  }
-  writeAll(state, data);
-  writeFileSync(REPLIES, JSON.stringify(replies));
-} else if (mode === "reply") {
-  for (const r of JSON.parse(readFileSync(REPLIES, "utf8"))) {
-    const body = `\`\`\`console\n${`visitante@github$ ${r.cmd}`.replace(/`/g, "ˋ")}\n${r.text.replace(/```/g, "ˋˋˋ") || ""}\n\`\`\`\n\nA saída já está no [terminal do perfil](https://github.com/${OWNER}). Roda mais um? 👉 [abrir terminal](https://github.com/${OWNER})`;
-    await api(`/repos/${REPO}/issues/${r.n}/comments`, { method: "POST", body: JSON.stringify({ body }) });
-    await api(`/repos/${REPO}/issues/${r.n}`, { method: "PATCH", body: JSON.stringify({ state: "closed", state_reason: "completed" }) });
-  }
-} else if (mode === "local") {
-  const r = run(state, process.env.PLAYER || "local", arg || "help", data);
-  console.log(plain(r.out));
-  writeAll(state, data);
-} else { console.error("uso: shell.mjs run|reply|local <comando>"); process.exit(1); }
+const state = { cwd: HOME, session: [], history: [], users: {}, clearAt: 0 };
+for (const c of (process.argv[2] ? [process.argv[2]] : SESSION)) run(state, OWNER, c, data);
+
+mkdirSync(ASSETS, { recursive: true });
+writeFileSync(ASSETS + "terminal.svg", renderTerminal(state, data));
+if (activity) writeFileSync(ASSETS + "dashboard.svg", renderDashboard(activity, data.fetchedAt));
+writeFileSync(README, renderReadme(data));
+writeFileSync(DATA_FILE, JSON.stringify(data, null, 1) + "\n");
+console.log("ok:", SESSION.join(" → "));

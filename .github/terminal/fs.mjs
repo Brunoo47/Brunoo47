@@ -1,8 +1,8 @@
 // Filesystem virtual do terminal. Para adicionar um arquivo/projeto, edite aqui.
 export const HOME = "/home/bruno";
 
-// Botões que aparecem embaixo do terminal no README.
-export const COMMAND_KEYS = ["help", "ls -la", "cat sobre.md", "neofetch", "htop", "tree", "git log", "./contato.sh"];
+
+
 
 // markdown simples -> segmentos coloridos
 function md(text) {

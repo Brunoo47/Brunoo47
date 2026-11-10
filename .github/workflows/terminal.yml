@@ -1,10 +1,8 @@
-name: ⌨️ Terminal
+name: ⌨️ Perfil
 
 on:
-  issues:
-    types: [opened]
   schedule:
-    - cron: "0 9 * * *" # atualiza os dados do GitHub todo dia às 06h (BRT)
+    - cron: "0 9 * * *" # todo dia às 06h (BRT): novo comando no terminal + dashboard atualizado
   workflow_dispatch:
   push:
     branches: [master]
@@ -12,17 +10,13 @@ on:
 
 permissions:
   contents: write
-  issues: write
 
-# Comandos em fila, um por vez. Se uma execução for descartada da fila,
-# a próxima processa todas as issues "$ ..." abertas, então nenhum comando se perde.
 concurrency:
-  group: terminal
-  cancel-in-progress: false
+  group: perfil
+  cancel-in-progress: true
 
 jobs:
-  shell:
-    if: github.event_name != 'issues' || startsWith(github.event.issue.title, '$')
+  render:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
@@ -31,24 +25,19 @@ jobs:
         with:
           node-version: 24
 
-      - name: ⚙️ Executar comandos
-        run: node .github/terminal/shell.mjs run
+      - name: 🖥️ Terminal + dashboard
+        run: node .github/terminal/shell.mjs
         env:
+          # METRICS_TOKEN (PAT com repo + read:org) faz o dashboard enxergar os repositórios privados.
+          # Sem ele, cai no token padrão e mostra só a atividade pública.
           GITHUB_TOKEN: ${{ secrets.METRICS_TOKEN || secrets.GITHUB_TOKEN }}
-          REPLIES_FILE: ${{ runner.temp }}/replies.json
 
-      - name: 💾 Salvar sessão
+      - name: 💾 Salvar
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add README.md assets .github/terminal/state.json .github/terminal/github.json
+          git add README.md assets .github/terminal/github.json
           git diff --cached --quiet && exit 0
-          git commit -m "⌨️ terminal: sessão atualizada"
-          for i in 1 2 3 4 5; do git pull --rebase -q && git push -q && exit 0; sleep $((i * 3)); done
+          git commit -m "chore: atualiza perfil [bot]"
+          for i in 1 2 3; do git pull --rebase -q && git push -q && exit 0; sleep 5; done
           exit 1
-
-      - name: 💬 Responder na issue
-        run: node .github/terminal/shell.mjs reply
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          REPLIES_FILE: ${{ runner.temp }}/replies.json
