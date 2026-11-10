@@ -1,10 +1,11 @@
 #!/usr/bin/env node
-// Gera assets/dashboard-dark.svg e assets/dashboard-light.svg a partir da API GraphQL do GitHub.
+// Gera assets/dashboard-*.svg e assets/neofetch-*.svg (tema claro e escuro) a partir da API GraphQL do GitHub.
 // Zero dependências (Node 20+).
 //   GITHUB_TOKEN=... GH_USER=Brunoo47 node .github/scripts/dashboard.mjs
 //   FIXTURE=dados.json node .github/scripts/dashboard.mjs   (teste local sem token)
 
 import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import { renderNeofetch } from "./neofetch.mjs";
 
 const USERNAME = process.env.GH_USER || "Brunoo47";
 const OUT_DIR = process.env.OUT_DIR || "assets";
@@ -12,6 +13,8 @@ const OUT_DIR = process.env.OUT_DIR || "assets";
 const QUERY = `query($login: String!) {
   user(login: $login) {
     name
+    login
+    createdAt
     followers { totalCount }
     repositories(ownerAffiliations: OWNER, isFork: false, first: 100, privacy: PUBLIC) {
       totalCount
@@ -36,18 +39,30 @@ const QUERY = `query($login: String!) {
   }
 }`;
 
-async function fetchData() {
-  if (process.env.FIXTURE) return JSON.parse(readFileSync(process.env.FIXTURE, "utf8"));
+async function gql(query, variables) {
   const token = process.env.GITHUB_TOKEN;
   if (!token) throw new Error("GITHUB_TOKEN não definido");
   const res = await fetch("https://api.github.com/graphql", {
     method: "POST",
     headers: { Authorization: `bearer ${token}`, "Content-Type": "application/json", "User-Agent": "profile-dashboard" },
-    body: JSON.stringify({ query: QUERY, variables: { login: USERNAME } }),
+    body: JSON.stringify({ query, variables }),
   });
   const json = await res.json();
   if (json.errors) throw new Error(JSON.stringify(json.errors));
-  return json.data.user;
+  return json.data;
+}
+
+async function fetchData() {
+  if (process.env.FIXTURE) return JSON.parse(readFileSync(process.env.FIXTURE, "utf8"));
+  const { user } = await gql(QUERY, { login: USERNAME });
+  // commits de todos os anos desde a criação da conta (a API limita cada consulta a 1 ano)
+  const first = new Date(user.createdAt).getUTCFullYear(), last = new Date().getUTCFullYear();
+  const parts = [];
+  for (let y = first; y <= last; y++)
+    parts.push(`y${y}: contributionsCollection(from: "${y}-01-01T00:00:00Z", to: "${y}-12-31T23:59:59Z") { totalCommitContributions restrictedContributionsCount }`);
+  const years = (await gql(`query($login: String!) { user(login: $login) { ${parts.join("\n")} } }`, { login: USERNAME })).user;
+  user.commitsAllTime = Object.values(years).reduce((s, y) => s + y.totalCommitContributions + y.restrictedContributionsCount, 0);
+  return user;
 }
 
 // ---------- métricas ----------
@@ -100,6 +115,7 @@ function compute(user) {
     stars: user.repositories.nodes.reduce((s, r) => s + r.stargazerCount, 0),
     repos: user.repositories.totalCount,
     followers: user.followers.totalCount,
+    commitsAllTime: user.commitsAllTime ?? cc.totalCommitContributions,
     current, longest, weeks, weekday, langs,
   };
 }
@@ -230,5 +246,8 @@ function render(m, t) {
 const user = await fetchData();
 const metrics = compute(user);
 mkdirSync(OUT_DIR, { recursive: true });
-for (const [name, theme] of Object.entries(THEMES)) writeFileSync(`${OUT_DIR}/dashboard-${name}.svg`, render(metrics, theme));
+for (const [name, theme] of Object.entries(THEMES)) {
+  writeFileSync(`${OUT_DIR}/dashboard-${name}.svg`, render(metrics, theme));
+  writeFileSync(`${OUT_DIR}/neofetch-${name}.svg`, renderNeofetch(user, metrics, theme, { animate: !process.env.STATIC }));
+}
 console.log("dashboard gerado:", JSON.stringify({ ...metrics, weeks: metrics.weeks.length }));
