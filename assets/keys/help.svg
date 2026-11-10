@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="76" height="36" viewBox="0 0 76 36" role="img" aria-label="$ help">
+<style>text{font-family:'JetBrains Mono','Fira Code','DejaVu Sans Mono',Menlo,Consolas,monospace;font-size:14px;white-space:pre}</style>
+<rect x="1" y="3" width="74" height="32" rx="8" fill="#0b0e14"/>
+<rect x="1" y="1" width="74" height="30" rx="8" fill="#161b22" stroke="#30363d"/>
+<text x="12" y="21" xml:space="preserve"><tspan fill="#7ee787">$</tspan><tspan fill="#e6edf3"> help</tspan></text>
+</svg>
