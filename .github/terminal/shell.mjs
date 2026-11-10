@@ -65,7 +65,7 @@ async function fetchGithub() {
   const langs = [...lm.values()].sort((a, b) => b.size - a.size).slice(0, 6).map((l) => ({ name: l.name, color: l.color, pct: (l.size / tot) * 100 }));
 
   const commits = u.recent.nodes.flatMap((r) => (r.defaultBranchRef?.target?.history?.nodes || [])
-    .filter((c) => c.author?.user?.login === OWNER && !c.messageHeadline.includes("[bot]"))
+    .filter((c) => c.author?.user?.login === OWNER && !/^(⌨️ terminal|chore: atualiza dashboard|🎮 4 em Linha)|\[bot\]/u.test(c.messageHeadline))
     .map((c) => ({ repo: r.name, sha: c.oid.slice(0, 7), msg: c.messageHeadline, date: c.committedDate })))
     .sort((a, b) => b.date.localeCompare(a.date)).slice(0, 6);
 
