@@ -1,10 +1,10 @@
 <!-- Este README é gerado por .github/terminal/shell.mjs — edite o script, não este arquivo. -->
 <p align="center">
-  <img src="./assets/terminal.svg?v=1794588788392" alt="Terminal do Brunoo47 rodando htop" width="100%" />
+  <img src="./assets/terminal.svg?v=1794670016637" alt="Terminal do Brunoo47 rodando cat stack.json" width="100%" />
 </p>
 
 <p align="center">
-  <img src="./assets/dashboard.svg?v=1794588788392" alt="Dashboard de atividade dos últimos 12 meses, incluindo repositórios privados de forma anonimizada" width="100%" />
+  <img src="./assets/dashboard.svg?v=1794670016637" alt="Dashboard de atividade dos últimos 12 meses, incluindo repositórios privados de forma anonimizada" width="100%" />
 </p>
 
 <p align="center"><sub>Gerado todo dia por <a href="./.github/terminal">scripts próprios</a> no GitHub Actions · o comando do terminal muda a cada dia</sub></p>

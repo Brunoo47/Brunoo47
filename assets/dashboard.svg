@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="824" height="590" viewBox="0 0 824 590" role="img" aria-labelledby="dt dd">
-<title id="dt">Dashboard de atividade</title><desc id="dd">990 contribuições em 12 meses, 984 commits (961 em repositórios privados), 0 pull requests, 185 dias ativos.</desc>
+<title id="dt">Dashboard de atividade</title><desc id="dd">987 contribuições em 12 meses, 981 commits (958 em repositórios privados), 0 pull requests, 184 dias ativos.</desc>
 <defs><linearGradient id="dbg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0f1320"/><stop offset="1" stop-color="#0a0d14"/></linearGradient></defs>
 <style>
     text{font-family:'JetBrains Mono','Fira Code','DejaVu Sans Mono',Menlo,Consolas,monospace;fill:#e6edf3}
@@ -13,18 +13,17 @@
 <circle cx="22" cy="18" r="6" fill="#ff5f57"/><circle cx="42" cy="18" r="6" fill="#febc2e"/><circle cx="62" cy="18" r="6" fill="#28c840"/>
 <text x="84" y="22" class="s" style="font-size:12px">dashboard — últimos 12 meses · públicos + privados</text>
 <g class="in" style="animation-delay:0ms"><rect x="22" y="50" width="186" height="72" rx="8" fill="#121725" stroke="#30363d"/>
-<text x="36" y="70" class="l">contribuições</text><text x="36" y="98" class="big">990</text><text x="36" y="114" class="s">880 em 2026</text></g>
+<text x="36" y="70" class="l">contribuições</text><text x="36" y="98" class="big">987</text><text x="36" y="114" class="s">880 em 2026</text></g>
 <g class="in" style="animation-delay:90ms"><rect x="220" y="50" width="186" height="72" rx="8" fill="#121725" stroke="#30363d"/>
-<text x="234" y="70" class="l">commits</text><text x="234" y="98" class="big">984</text><text x="234" y="114" class="s">98% em privados</text></g>
+<text x="234" y="70" class="l">commits</text><text x="234" y="98" class="big">981</text><text x="234" y="114" class="s">98% em privados</text></g>
 <g class="in" style="animation-delay:180ms"><rect x="418" y="50" width="186" height="72" rx="8" fill="#121725" stroke="#30363d"/>
 <text x="432" y="70" class="l">maior streak</text><text x="432" y="98" class="big">5d</text><text x="432" y="114" class="s">atual: 1d seguidos</text></g>
 <g class="in" style="animation-delay:270ms"><rect x="616" y="50" width="186" height="72" rx="8" fill="#121725" stroke="#30363d"/>
-<text x="630" y="70" class="l">dias ativos</text><text x="630" y="98" class="big">185</text><text x="630" y="114" class="s">nos últimos 12 meses</text></g>
+<text x="630" y="70" class="l">dias ativos</text><text x="630" y="98" class="big">184</text><text x="630" y="114" class="s">nos últimos 12 meses</text></g>
 <rect x="22" y="134" width="16" height="6" rx="3" fill="#56d4dd"/>
 <rect x="40" y="134" width="762" height="6" rx="3" fill="#a78bfa"/>
-<text x="22" y="154" class="s"><tspan fill="#56d4dd">■</tspan> públicos 23   <tspan fill="#a78bfa">■</tspan> privados 961</text>
+<text x="22" y="154" class="s"><tspan fill="#56d4dd">■</tspan> públicos 23   <tspan fill="#a78bfa">■</tspan> privados 958</text>
 <text x="22" y="178" class="h">Contribuições por dia</text>
-<rect x="52" y="254" width="11" height="11" rx="2" fill="#4c3a8f"><title>2025-11-13: 3</title></rect>
 <rect x="52" y="268" width="11" height="11" rx="2" fill="#2e1f5e"><title>2025-11-14: 2</title></rect>
 <rect x="52" y="282" width="11" height="11" rx="2" fill="#161b22"><title>2025-11-15: 0</title></rect>
 <rect x="66" y="198" width="11" height="11" rx="2" fill="#7c5cd6"><title>2025-11-16: 5</title></rect>
@@ -401,6 +400,7 @@
 <rect x="780" y="240" width="11" height="11" rx="2" fill="#161b22"><title>2026-11-11: 0</title></rect>
 <rect x="780" y="254" width="11" height="11" rx="2" fill="#161b22"><title>2026-11-12: 0</title></rect>
 <rect x="780" y="268" width="11" height="11" rx="2" fill="#2e1f5e"><title>2026-11-13: 1</title></rect>
+<rect x="780" y="282" width="11" height="11" rx="2" fill="#161b22"><title>2026-11-14: 0</title></rect>
 <text x="22" y="221" class="s">Seg</text>
 <text x="22" y="249" class="s">Qua</text>
 <text x="22" y="277" class="s">Sex</text>
@@ -446,11 +446,11 @@
 <g class="in" style="animation-delay:300ms">
 <text x="440" y="356" class="l" style="fill:#e6edf3">🔒 ultralims · privados</text>
 <rect x="440" y="361" width="316" height="6" rx="3" fill="#a78bfa"/>
-<text x="762" y="368" class="s">961</text></g>
+<text x="762" y="368" class="s">958</text></g>
 <g class="in" style="animation-delay:360ms">
 <text x="440" y="381" class="l" style="fill:#e6edf3">Brunoo47</text>
-<rect x="440" y="386" width="5.261186264308013" height="6" rx="3" fill="#56d4dd"/>
-<text x="451.26118626430804" y="393" class="s">16</text></g>
+<rect x="440" y="386" width="5.277661795407098" height="6" rx="3" fill="#56d4dd"/>
+<text x="451.2776617954071" y="393" class="s">16</text></g>
 <g class="in" style="animation-delay:420ms">
 <text x="440" y="406" class="l" style="fill:#e6edf3">app-aws</text>
 <rect x="440" y="411" width="3" height="6" rx="3" fill="#56d4dd"/>
@@ -461,5 +461,5 @@
 <text x="449" y="443" class="s">3</text></g>
 <line x1="22" y1="552" x2="802" y2="552" stroke="#30363d"/>
 <text x="22" y="574" class="s">🔒 privados entram só como números — nenhum nome, mensagem ou código sai dos repositórios.</text>
-<text x="802" y="22" class="s" text-anchor="end">atualizado 13/11/2026, 13:53</text>
+<text x="802" y="22" class="s" text-anchor="end">atualizado 14/11/2026, 12:26</text>
 </svg>
