@@ -2,18 +2,18 @@
  "login": "Brunoo47",
  "createdAt": "2023-02-12T16:13:10Z",
  "followers": 93,
- "repos": 5,
+ "repos": 6,
  "stars": 6,
- "total": 991,
+ "total": 1000,
  "prs": 0,
- "commitsYear": 985,
- "commitsAllTime": 1285,
+ "commitsYear": 993,
+ "commitsAllTime": 1293,
  "load": [
-  6,
-  23,
-  92
+  9,
+  16,
+  101
  ],
- "current": 1,
+ "current": 2,
  "longest": 5,
  "weeks": [
   40,
@@ -41,77 +41,77 @@
   9,
   4,
   22,
-  6
+  15
  ],
  "langs": [
   {
    "name": "JavaScript",
    "color": "#f1e05a",
-   "pct": 70.9670163659253
+   "pct": 49.17705956111394
   },
   {
    "name": "Python",
    "color": "#3572A5",
-   "pct": 20.488795635753252
-  },
-  {
-   "name": "CSS",
-   "color": "#663399",
-   "pct": 6.749811162400336
-  },
-  {
-   "name": "PHP",
-   "color": "#4F5D95",
-   "pct": 1.2498531263113721
+   "pct": 36.04165067312457
   },
   {
    "name": "HTML",
    "color": "#e34c26",
-   "pct": 0.4844313890054553
+   "pct": 8.740965102672725
   },
   {
-   "name": "Dockerfile",
-   "color": "#384d54",
-   "pct": 0.060092320604280325
+   "name": "CSS",
+   "color": "#663399",
+   "pct": 4.6773259262878
+  },
+  {
+   "name": "PHP",
+   "color": "#4F5D95",
+   "pct": 0.866093923384536
+  },
+  {
+   "name": "Shell",
+   "color": "#89e051",
+   "pct": 0.25403560685896137
   }
  ],
  "commits": [
+  {
+   "repo": "app-money",
+   "sha": "2d220cf",
+   "msg": "Facecam automática, filtro de GTA/reprise, IA Gemini funcionando e pa…",
+   "date": "2026-11-17T13:40:53Z"
+  },
+  {
+   "repo": "app-money",
+   "sha": "e4c8093",
+   "msg": "Contexto de negócio e decisões para o Claude Code (docs/CONTEXTO.md)",
+   "date": "2026-11-17T11:59:33Z"
+  },
+  {
+   "repo": "app-money",
+   "sha": "050174f",
+   "msg": "Escritório mais fiel à referência: lounge, bonecos redondos e mascote",
+   "date": "2026-11-17T11:56:56Z"
+  },
+  {
+   "repo": "app-money",
+   "sha": "8fe3e34",
+   "msg": "Escritório: cena isométrica com os agentes e métricas por plataforma",
+   "date": "2026-11-17T11:47:03Z"
+  },
+  {
+   "repo": "app-money",
+   "sha": "fa936a3",
+   "msg": "Pipeline de cortes automáticos de lives de GTA 6",
+   "date": "2026-11-17T10:34:46Z"
+  },
   {
    "repo": "demolay-ai-assistant",
    "sha": "9e78186",
    "msg": "README: capa com badges, preview, destaques e guia completo",
    "date": "2026-06-19T19:27:07Z"
-  },
-  {
-   "repo": "demolay-ai-assistant",
-   "sha": "e0891e0",
-   "msg": "Serve /api/chat no `npm run dev` com fallback de modo demonstração",
-   "date": "2026-06-19T19:23:06Z"
-  },
-  {
-   "repo": "demolay-ai-assistant",
-   "sha": "951f604",
-   "msg": "Reestrutura assistente DeMolay em app React+Vite com backend serverless",
-   "date": "2026-06-19T19:20:08Z"
-  },
-  {
-   "repo": "app-aws",
-   "sha": "a3d2b56",
-   "msg": "Change PHP version in README",
-   "date": "2026-02-09T18:17:18Z"
-  },
-  {
-   "repo": "app-aws",
-   "sha": "f6b951e",
-   "msg": "feat: first commit",
-   "date": "2026-02-09T17:09:18Z"
-  },
-  {
-   "repo": "app-aws",
-   "sha": "08cb133",
-   "msg": "Revise README with project details and stack",
-   "date": "2026-02-04T13:49:59Z"
   }
  ],
- "fetchedAt": "2026-11-16T19:09:08.464Z"
+ "fetchedAt": "2026-11-17T18:02:06.567Z"
 }
