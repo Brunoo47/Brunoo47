@@ -1,19 +1,19 @@
 {
  "login": "Brunoo47",
  "createdAt": "2023-02-12T16:13:10Z",
- "followers": 93,
+ "followers": 92,
  "repos": 6,
  "stars": 6,
- "total": 1000,
+ "total": 1003,
  "prs": 0,
- "commitsYear": 993,
- "commitsAllTime": 1293,
+ "commitsYear": 996,
+ "commitsAllTime": 1296,
  "load": [
-  9,
-  16,
-  101
+  1,
+  19,
+  98
  ],
- "current": 2,
+ "current": 3,
  "longest": 5,
  "weeks": [
   40,
@@ -41,41 +41,53 @@
   9,
   4,
   22,
-  15
+  18
  ],
  "langs": [
   {
    "name": "JavaScript",
    "color": "#f1e05a",
-   "pct": 49.17705956111394
+   "pct": 48.697292764734065
   },
   {
    "name": "Python",
    "color": "#3572A5",
-   "pct": 36.04165067312457
+   "pct": 36.665622350816406
   },
   {
    "name": "HTML",
    "color": "#e34c26",
-   "pct": 8.740965102672725
+   "pct": 8.655689064170137
   },
   {
    "name": "CSS",
    "color": "#663399",
-   "pct": 4.6773259262878
+   "pct": 4.631694371751871
   },
   {
    "name": "PHP",
    "color": "#4F5D95",
-   "pct": 0.866093923384536
+   "pct": 0.8576443920238841
   },
   {
    "name": "Shell",
    "color": "#89e051",
-   "pct": 0.25403560685896137
+   "pct": 0.2515572592237662
   }
  ],
  "commits": [
+  {
+   "repo": "app-money",
+   "sha": "a2857b9",
+   "msg": "baixar_vod: tira --force-keyframes-at-cuts (recodificava e baixava na…",
+   "date": "2026-11-17T19:31:31Z"
+  },
+  {
+   "repo": "app-money",
+   "sha": "ffffeeb",
+   "msg": "Cortes com contexto: prompt prioriza novidades do GTA 6 e IA recebe q…",
+   "date": "2026-11-17T19:21:08Z"
+  },
   {
    "repo": "app-money",
    "sha": "2d220cf",
@@ -95,23 +107,11 @@
    "date": "2026-11-17T11:56:56Z"
   },
   {
-   "repo": "app-money",
-   "sha": "8fe3e34",
-   "msg": "Escritório: cena isométrica com os agentes e métricas por plataforma",
-   "date": "2026-11-17T11:47:03Z"
-  },
-  {
-   "repo": "app-money",
-   "sha": "fa936a3",
-   "msg": "Pipeline de cortes automáticos de lives de GTA 6",
-   "date": "2026-11-17T10:34:46Z"
-  },
-  {
    "repo": "demolay-ai-assistant",
    "sha": "9e78186",
    "msg": "README: capa com badges, preview, destaques e guia completo",
    "date": "2026-06-19T19:27:07Z"
   }
  ],
- "fetchedAt": "2026-11-17T18:02:06.567Z"
+ "fetchedAt": "2026-11-18T17:43:05.450Z"
 }
