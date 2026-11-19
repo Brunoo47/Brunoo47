@@ -1,17 +1,17 @@
 {
  "login": "Brunoo47",
  "createdAt": "2023-02-12T16:13:10Z",
- "followers": 92,
- "repos": 6,
+ "followers": 93,
+ "repos": 7,
  "stars": 6,
- "total": 1003,
+ "total": 1006,
  "prs": 0,
- "commitsYear": 996,
- "commitsAllTime": 1296,
+ "commitsYear": 998,
+ "commitsAllTime": 1298,
  "load": [
-  1,
-  19,
-  98
+  0,
+  22,
+  79
  ],
  "current": 3,
  "longest": 5,
@@ -41,41 +41,53 @@
   9,
   4,
   22,
-  18
+  21
  ],
  "langs": [
   {
    "name": "JavaScript",
    "color": "#f1e05a",
-   "pct": 48.697292764734065
+   "pct": 47.55962023038157
   },
   {
    "name": "Python",
    "color": "#3572A5",
-   "pct": 36.665622350816406
+   "pct": 35.80903527717783
   },
   {
    "name": "HTML",
    "color": "#e34c26",
-   "pct": 8.655689064170137
+   "pct": 10.506434485241181
   },
   {
    "name": "CSS",
    "color": "#663399",
-   "pct": 4.631694371751871
+   "pct": 4.806740460763139
   },
   {
    "name": "PHP",
    "color": "#4F5D95",
-   "pct": 0.8576443920238841
+   "pct": 0.8376079913606912
   },
   {
    "name": "Shell",
    "color": "#89e051",
-   "pct": 0.2515572592237662
+   "pct": 0.24568034557235421
   }
  ],
  "commits": [
+  {
+   "repo": "corteneongta",
+   "sha": "b1b400d",
+   "msg": "Arquivo de verificação do TikTok",
+   "date": "2026-11-18T19:00:34Z"
+  },
+  {
+   "repo": "corteneongta",
+   "sha": "25e5f19",
+   "msg": "Site do Corte Neon GTA: início, termos, privacidade e retorno do logi…",
+   "date": "2026-11-18T18:57:42Z"
+  },
   {
    "repo": "app-money",
    "sha": "a2857b9",
@@ -99,19 +111,7 @@
    "sha": "e4c8093",
    "msg": "Contexto de negócio e decisões para o Claude Code (docs/CONTEXTO.md)",
    "date": "2026-11-17T11:59:33Z"
-  },
-  {
-   "repo": "app-money",
-   "sha": "050174f",
-   "msg": "Escritório mais fiel à referência: lounge, bonecos redondos e mascote",
-   "date": "2026-11-17T11:56:56Z"
-  },
-  {
-   "repo": "demolay-ai-assistant",
-   "sha": "9e78186",
-   "msg": "README: capa com badges, preview, destaques e guia completo",
-   "date": "2026-06-19T19:27:07Z"
   }
  ],
- "fetchedAt": "2026-11-18T17:43:05.450Z"
+ "fetchedAt": "2026-11-19T17:53:43.339Z"
 }
