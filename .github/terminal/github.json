@@ -1,19 +1,19 @@
 {
  "login": "Brunoo47",
  "createdAt": "2023-02-12T16:13:10Z",
- "followers": 93,
- "repos": 7,
+ "followers": 92,
+ "repos": 5,
  "stars": 6,
- "total": 995,
+ "total": 1033,
  "prs": 0,
- "commitsYear": 987,
- "commitsAllTime": 1299,
+ "commitsYear": 1027,
+ "commitsAllTime": 1339,
  "load": [
-  0,
-  16,
-  57
+  1,
+  10,
+  95
  ],
- "current": 0,
+ "current": 1,
  "longest": 5,
  "weeks": [
   19,
@@ -37,81 +37,81 @@
   53,
   47,
   51,
-  9,
-  4,
-  22,
-  22,
-  0
+  11,
+  6,
+  51,
+  26,
+  1
  ],
  "langs": [
   {
    "name": "JavaScript",
    "color": "#f1e05a",
-   "pct": 44.51925405667232
+   "pct": 70.9670163659253
   },
   {
    "name": "Python",
    "color": "#3572A5",
-   "pct": 39.91260121937094
-  },
-  {
-   "name": "HTML",
-   "color": "#e34c26",
-   "pct": 9.834784714690366
+   "pct": 20.488795635753252
   },
   {
    "name": "CSS",
    "color": "#663399",
-   "pct": 4.499457706361157
+   "pct": 6.749811162400336
   },
   {
    "name": "PHP",
    "color": "#4F5D95",
-   "pct": 0.7840618320048016
+   "pct": 1.2498531263113721
   },
   {
-   "name": "Shell",
-   "color": "#89e051",
-   "pct": 0.22997462276369687
+   "name": "HTML",
+   "color": "#e34c26",
+   "pct": 0.4844313890054553
+  },
+  {
+   "name": "Dockerfile",
+   "color": "#384d54",
+   "pct": 0.060092320604280325
   }
  ],
  "commits": [
   {
-   "repo": "app-money",
-   "sha": "a81d0f9",
-   "msg": "Postagem YouTube/TikTok (publisher.py), chat do YouTube via yt-dlp e …",
-   "date": "2026-11-19T18:41:58Z"
+   "repo": "demolay-ai-assistant",
+   "sha": "9e78186",
+   "msg": "README: capa com badges, preview, destaques e guia completo",
+   "date": "2026-06-19T19:27:07Z"
   },
   {
-   "repo": "corteneongta",
-   "sha": "b1b400d",
-   "msg": "Arquivo de verificação do TikTok",
-   "date": "2026-11-18T19:00:34Z"
+   "repo": "demolay-ai-assistant",
+   "sha": "e0891e0",
+   "msg": "Serve /api/chat no `npm run dev` com fallback de modo demonstração",
+   "date": "2026-06-19T19:23:06Z"
   },
   {
-   "repo": "corteneongta",
-   "sha": "25e5f19",
-   "msg": "Site do Corte Neon GTA: início, termos, privacidade e retorno do logi…",
-   "date": "2026-11-18T18:57:42Z"
+   "repo": "demolay-ai-assistant",
+   "sha": "951f604",
+   "msg": "Reestrutura assistente DeMolay em app React+Vite com backend serverless",
+   "date": "2026-06-19T19:20:08Z"
   },
   {
-   "repo": "app-money",
-   "sha": "a2857b9",
-   "msg": "baixar_vod: tira --force-keyframes-at-cuts (recodificava e baixava na…",
-   "date": "2026-11-17T19:31:31Z"
+   "repo": "app-aws",
+   "sha": "a3d2b56",
+   "msg": "Change PHP version in README",
+   "date": "2026-02-09T18:17:18Z"
   },
   {
-   "repo": "app-money",
-   "sha": "ffffeeb",
-   "msg": "Cortes com contexto: prompt prioriza novidades do GTA 6 e IA recebe q…",
-   "date": "2026-11-17T19:21:08Z"
+   "repo": "app-aws",
+   "sha": "f6b951e",
+   "msg": "feat: first commit",
+   "date": "2026-02-09T17:09:18Z"
   },
   {
-   "repo": "app-money",
-   "sha": "2d220cf",
-   "msg": "Facecam automática, filtro de GTA/reprise, IA Gemini funcionando e pa…",
-   "date": "2026-11-17T13:40:53Z"
+   "repo": "app-aws",
+   "sha": "08cb133",
+   "msg": "Revise README with project details and stack",
+   "date": "2026-02-04T13:49:59Z"
   }
  ],
- "fetchedAt": "2026-11-23T20:46:51.288Z"
+ "fetchedAt": "2026-11-24T19:50:53.168Z"
 }
